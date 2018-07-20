@@ -1,0 +1,14 @@
+{
+  "name": "event_management",
+  "version": "1.0.0",
+  "description": "An event management library",
+  "main": "events.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "event"
+  ],
+  "author": "liuchengying",
+  "license": "MIT"
+}
