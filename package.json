@@ -4,7 +4,7 @@
   "description": "An event management library",
   "main": "events.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   ],
   "author": "liuchengying<https://github.com/liuchengying>",
   "license": "MIT",
-  "url": "https://github.com/liuchengying/js-Events"
+  "url": "https://github.com/liuchengying/js-Events",
+  "dependencies": {
+    "mocha": "^5.2.0"
+  }
 }
