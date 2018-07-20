@@ -1,14 +1,19 @@
 {
-  "name": "event_management",
+  "name": "events-manage",
   "version": "1.0.0",
   "description": "An event management library",
   "main": "events.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liuchengying/js-Events.git"
+  },
   "keywords": [
     "event"
   ],
-  "author": "liuchengying",
-  "license": "MIT"
+  "author": "liuchengying<https://github.com/liuchengying>",
+  "license": "MIT",
+  "url": "https://github.com/liuchengying/js-Events"
 }

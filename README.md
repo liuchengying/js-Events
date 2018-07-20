@@ -139,3 +139,13 @@ myEvent.removeListener('eatting', function (msg) {
     myEvent.emit('eatting', '吃饭'); // warning 不存在此监听事件
     myevent.emit('sleeping', '睡觉'); // warning 不存在此监听事件
 ```
+
+
+
+
+
+
+
+
+-------------------------
+如果感觉对你有帮助，记着STAR:star:！！！:grin:
