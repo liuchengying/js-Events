@@ -1,6 +1,6 @@
 {
   "name": "events-manage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An event management library",
   "main": "events.js",
   "scripts": {
