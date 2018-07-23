@@ -140,7 +140,6 @@
         }
       }
     }
-    console.log(_event);
     return this;
   }
 

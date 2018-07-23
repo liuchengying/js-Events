@@ -17,6 +17,7 @@
   "license": "MIT",
   "url": "https://github.com/liuchengying/js-Events",
   "dependencies": {
+    "chai": "^4.1.2",
     "mocha": "^5.2.0"
   }
 }
