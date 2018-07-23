@@ -3,17 +3,62 @@
 ### 介绍
 *方法和属性*
 * [X] events.MaxEventListNum
+* [X] events.getListenerCount([,type])
 * [X] events.emit(enentName, message)
 * [X] events.on(eventName, callback)
 * [X] events.once(eventName, callback)
 * [X] events.removeListener(eventName, callback)
 * [X] evetns.removeAllListener([,eventName])
 
+### 安装
+node环境下
+
+> npm install --save events-manage
+
+CMD、AMD模块化下
+``` javascript
+// CMD
+var events = require('events-manage');
+
+// AMD 
+define('events-manage', function (e) { ... })
+```
+浏览器模式下
+``` html
+<script src="http://119.27.182.76/myTools/events.min.js"></script>
+// 个人的腾讯云
+```
+**提示：**  
+重要的事情说的第一遍：在CMD以及node环境下本模块直接返回对象实例（无需再new一个实例），而在AMD和浏览器环境下，则返回构造函数（需要通过new来创建实例）
+[js文件戳这里](https://github.com/liuchengying/js-Events/tree/master/dist)
 ### 使用
 简单使用
 ``` javascript
 // 创建events实例
 var myEvent = new events();
+
+// 重要的事情说的第二遍：
+// 在CMD以及node环境下本模块直接返回对象实例（无需再new一个实例），而在AMD和浏览器环境下，则返回构造函数（需要通过new来创建实例） 
+```
+在Vue中使用
+``` javascript
+var myEvents = require('events-manage');
+
+// 添加全局，会挂在在Vue.$ev下
+Vue.use(myEvents);
+
+// 全局监听
+Vue.$ev.on('eatting', function (msg) {
+    console.log(msg);
+})
+
+// 发布
+Vue.$ev.emit('eatting', '吃饭'); // 吃饭
+...
+...
+...
+// 重要的事情说的第三遍：
+// 在CMD以及node环境下本模块直接返回对象实例（无需再new一个实例），而在AMD和浏览器环境下，则返回构造函数（需要通过new来创建实例） 
 ```
 * #### events.MaxEventListNum  --属性
 > *每个事件的最大订阅数量*
@@ -21,7 +66,33 @@ var myEvent = new events();
 myEvent.MaxEventListNum = 5;// 每个事件的最多订阅数为 5
 ```
 **如果不设置MaxEventListNum, 则默认为 10**
+* #### events.getListenerCount([,type]) -- 方法
+> *获得当前所有事件/某类型的事件的监听数量*
+``` javascript 
+myEvents.getListenerCount('eatting') // type 参数为可选参数
 
+// 简单示例
+
+// 添加监听事件
+myEvents.on('eatting', function () { ... });
+
+myEvents.on('sleeping', function () { ... });
+
+myEvents.on('eatting', function () { ... });
+
+// 获取事件数量
+myEvents.getListenerCount('eatting'); // return: 2
+
+myEvents.getListenerCount('sleeping'); // return: 1
+
+myEvents.getListenerCount();
+// return:
+// {
+//  eatting: 2,
+//  sleeping: 1
+//}
+```
+通过上面的简单示例，当使用getListenerCount方法获取监听事件数量时如果存在参数type（事件类型），则该方法会返回 此类型监听事件的数量（返回Number类型），当不存在参数type时，则返回当前myEvents实例所有监听事件，以对象的方式返回（键值对）。
 * #### events.emit(enentName, message) --方法
 > *发布事件*
 ``` javascript
